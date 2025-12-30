@@ -18,4 +18,4 @@ RUN npx playwright install
 COPY . /app
 RUN npx tsc
 ENTRYPOINT [ "node" ]
-CMD ["dist/src/index.js"]
+CMD ["/app/dist/src/index.js"]
