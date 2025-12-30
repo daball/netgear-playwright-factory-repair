@@ -13,6 +13,7 @@ services:
       default:
       vlandown:
         ipv4_address: 192.168.0.171
+    restart: always
 
 networks:
   default:
