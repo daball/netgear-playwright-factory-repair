@@ -52,14 +52,14 @@ async function indefinitePing() {
           console.error("Error during configuration recovery remediation steps:", e);
         }
         try {
-          await teardown();
-        } catch (e) {
-          console.error("Error during browser shutdown:", e);
-        }
-        try {
           await performRemediationLoginOnceSteps();
         } catch (e) {
           console.error("Error during login once remediation steps:", e);
+        }
+        try {
+          await teardown();
+        } catch (e) {
+          console.error("Error during browser shutdown:", e);
         }
       }
     }
