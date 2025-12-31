@@ -34,7 +34,7 @@ async function indefinitePing() {
       });
       if (resFactoryIp.alive) {
         console.log("Unauthorized factory reset detected. Requires remediation. Sleeping for 10 seconds.");
-        sleep(10000);
+        await sleep(10000);
         // detectedAnomaly = true;
         try {
           await setup();
@@ -73,6 +73,9 @@ async function setup() {
   console.log("Starting up Chromium Playwright.");
   browser = await chromium.launch();
   context = await browser.newContext();
+  // Set default timeout for all operations in this context
+  context.setDefaultTimeout(300000); // 300 seconds (5 minutes)
+  context.setDefaultNavigationTimeout(300000); // 300 seconds for navigation
 }
 
 async function teardown() {
